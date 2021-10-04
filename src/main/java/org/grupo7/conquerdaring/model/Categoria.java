@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -16,15 +16,15 @@ public class Categoria {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@NotBlank
+	@NotNull
 	@Size(min = 3 , max = 30, message = "O atributo tipo é obrigatório, deve conter no minimo 03 e no maximo 30 caracteres")	
 	private String tipo;
 	
-	@NotBlank
+	@NotNull
 	@Size(min = 3 , max = 200,  message = "O atributo nomeOrganizacao é obrigatório, deve conter no minimo 03 e no maximo 200 caracteres")	
 	private String nomeOrganizacao;
 	
-	@NotBlank
+	@NotNull
 	@Size(min = 3 , max = 50, message = "O atributo estudante é obrigatório, deve conter no minimo 03 e no maximo 50 caracteres")	
 	private String estudante;
 	
@@ -60,7 +60,4 @@ public class Categoria {
 	public void setEstudante(String estudante) {
 		this.estudante = estudante;
 	}
-	
-	
-	
 }
