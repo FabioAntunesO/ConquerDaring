@@ -1,12 +1,21 @@
 package org.grupo7.conquerdaring.model;
 
+import java.util.Date;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "tb_categoria")
@@ -14,27 +23,27 @@ public class Categoria {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private long id_categoria;
 	
 	@NotNull
-	@Size(min = 3 , max = 30, message = "O atributo tipo é obrigatório, deve conter no minimo 03 e no maximo 30 caracteres")	
+	@Size(min = 2 , max = 30, message = "O atributo tipo é obrigatório, deve conter no minimo 03 e no maximo 30 caracteres")	
 	private String tipo;
 	
 	@NotNull
-	@Size(min = 3 , max = 200,  message = "O atributo nomeOrganizacao é obrigatório, deve conter no minimo 03 e no maximo 200 caracteres")	
+	@Size(min = 2 , max = 200,  message = "O atributo nomeOrganizacao é obrigatório, deve conter no minimo 03 e no maximo 200 caracteres")	
 	private String nomeOrganizacao;
+
+	@Temporal(TemporalType.TIMESTAMP)
+    private Date data = new java.sql.Date(System.currentTimeMillis());
 	
-	@NotNull
-	@Size(min = 3 , max = 50, message = "O atributo estudante é obrigatório, deve conter no minimo 03 e no maximo 50 caracteres")	
-	private String estudante;
 	
 
 	public long getId() {
-		return id;
+		return id_categoria;
 	}
 
 	public void setId(long id) {
-		this.id = id;
+		this.id_categoria = id;
 	}
 
 	public String getTipo() {
@@ -53,11 +62,20 @@ public class Categoria {
 		this.nomeOrganizacao = nomeOrganizacao;
 	}
 
-	public String getEstudante() {
-		return estudante;
+	public long getId_categoria() {
+		return id_categoria;
 	}
 
-	public void setEstudante(String estudante) {
-		this.estudante = estudante;
+	public void setId_categoria(long id_categoria) {
+		this.id_categoria = id_categoria;
+	}
+
+	public Date getData() {
+		return data;
+	}
+
+	public void setData(Date data) {
+		this.data = data;
 	}
 }
+
