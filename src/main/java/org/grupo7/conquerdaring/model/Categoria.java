@@ -34,19 +34,25 @@ public class Categoria {
 	private String nomeOrganizacao;
 
 	@Temporal(TemporalType.TIMESTAMP)
-    private Date data = new java.sql.Date(System.currentTimeMillis());
-	
-<<<<<<< HEAD
-	@Temporal(TemporalType.TIMESTAMP)
 	private Date date = new java.sql.Date(System.currentTimeMillis());
-=======
->>>>>>> 852abc98d166a539d611bc5c7480c0e4e62c75fd
-	
+
 	@OneToMany(mappedBy = "categoria", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("categoria")
 	private List<Produto> produto;
 
 	public long getId() {
+		return id_categoria;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public long getId_categoria() {
 		return id_categoria;
 	}
 
@@ -78,30 +84,8 @@ public class Categoria {
 		this.nomeOrganizacao = nomeOrganizacao;
 	}
 
-<<<<<<< HEAD
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
-=======
-	public long getId_categoria() {
-		return id_categoria;
-	}
-
 	public void setId_categoria(long id_categoria) {
 		this.id_categoria = id_categoria;
 	}
-
-	public Date getData() {
-		return data;
-	}
-
-	public void setData(Date data) {
-		this.data = data;
->>>>>>> 852abc98d166a539d611bc5c7480c0e4e62c75fd
-	}
-	
 }
 
