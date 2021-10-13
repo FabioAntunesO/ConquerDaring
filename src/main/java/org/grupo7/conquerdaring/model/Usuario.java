@@ -66,14 +66,14 @@ public class Usuario {
 		return senha;
 	}
 
-<<<<<<< HEAD
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
 
 	public String getUsuario() {
 		return null;
 	}
-}
 
-=======
 	public String getEmail() {
 		return email;
 	}
@@ -81,9 +81,4 @@ public class Usuario {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
 }
->>>>>>> f3d18f157eb40f03ab582178678f4473b39ab69e
