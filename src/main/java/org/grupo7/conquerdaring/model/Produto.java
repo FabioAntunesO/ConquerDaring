@@ -17,7 +17,7 @@ public class Produto {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id_produto;
+	private long id;
 	
 	@NotNull
 	@Size(min = 2, max = 100, message = "O atributo nome é obrigatório, deve conter no minimo 02 e no maximo 100 caracteres")
@@ -33,13 +33,25 @@ public class Produto {
 	@ManyToOne
 	@JsonIgnoreProperties("produto")
 	private Categoria categoria;
+	
+	@ManyToOne
+	@JsonIgnoreProperties("usuario/{usuario}")
+	private Usuario usuario;
 
-	public long getId_produto() {
-		return id_produto;
+	public Usuario getUsuario() {
+		return usuario;
 	}
 
-	public void setId_produto(long id_produto) {
-		this.id_produto = id_produto;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public String getCurso() {
