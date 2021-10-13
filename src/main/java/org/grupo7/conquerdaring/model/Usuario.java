@@ -56,6 +56,12 @@ public class Usuario {
 		return senha;
 	}
 
+	public String getUsuario() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 	/*
 	public void setSenha(String senha) {
 		this.senha = senha;
