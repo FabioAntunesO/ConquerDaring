@@ -23,15 +23,15 @@ public class Usuario {
 	private long id;
 	
 	@NotNull
-	@Size(min = 2, max = 50, message = "O atributo nome é obrigatório, deve conter no minimo 02 e no maximo 100 caracteres")
+	@Size(min = 2, max = 50, message = "O atributo nome é obrigatório, deve conter no minimo 02 e no maximo 50 caracteres")
 	private String nome;
 	
 	@NotNull
-	@Size(min = 2, max = 50, message = "O atributo nome é obrigatório, deve conter no minimo 02 e no maximo 100 caracteres")
+	@Size(min = 2, max = 50, message = "O atributo email é obrigatório, deve conter no minimo 02 e no maximo 50 caracteres")
 	private String email;
 	
 	@NotNull
-	@Size(min = 5, max = 10, message = "O atributo nome é obrigatório, deve conter no minimo 05 e no maximo 10 caracteres")
+	@Size(min = 5, max = 20, message = "O atributo senha é obrigatório, deve conter no minimo 05 e no maximo 20 caracteres")
 	private String senha;
 	
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
