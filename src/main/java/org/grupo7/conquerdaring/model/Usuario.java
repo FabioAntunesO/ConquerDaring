@@ -23,15 +23,15 @@ public class Usuario {
 	private long id;
 	
 	@NotNull
-	@Size(min = 2, max = 50, message = "O atributo nome é obrigatório, deve conter no minimo 02 e no maximo 100 caracteres")
+	@Size(min = 2, max = 50, message = "O atributo nome é obrigatório, deve conter no minimo 02 e no maximo 50 caracteres")
 	private String nome;
 	
 	@NotNull
-	@Size(min = 2, max = 50, message = "O atributo nome é obrigatório, deve conter no minimo 02 e no maximo 100 caracteres")
+	@Size(min = 2, max = 50, message = "O atributo email é obrigatório, deve conter no minimo 02 e no maximo 50 caracteres")
 	private String email;
 	
 	@NotNull
-	@Size(min = 5, max = 10, message = "O atributo nome é obrigatório, deve conter no minimo 05 e no maximo 10 caracteres")
+	@Size(min = 3, max = 100, message = "O atributo senha é obrigatório, deve conter no minimo 03 e no maximo 100 caracteres")
 	private String senha;
 	
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
@@ -45,7 +45,7 @@ public class Usuario {
 	public void setProduto(List<Produto> produto) {
 		this.produto = produto;
 	}
-
+	
 	public long getId() {
 		return id;
 	}
@@ -66,8 +66,8 @@ public class Usuario {
 		return senha;
 	}
 
-	public String getUsuario() {
-		return null;
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
 	public String getEmail() {
@@ -77,9 +77,4 @@ public class Usuario {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
 }
-

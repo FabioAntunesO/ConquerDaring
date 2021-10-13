@@ -26,11 +26,11 @@ public class Categoria {
 	private long id;
 	
 	@NotNull
-	@Size(min = 2 , max = 30, message = "O atributo tipo é obrigatório, deve conter no minimo 03 e no maximo 30 caracteres")	
+	@Size(min = 2 , max = 30, message = "O atributo tipo é obrigatório, deve conter no minimo 02 e no maximo 30 caracteres")	
 	private String tipo;
 	
 	@NotNull
-	@Size(min = 2 , max = 200,  message = "O atributo nomeOrganizacao é obrigatório, deve conter no minimo 03 e no maximo 200 caracteres")	
+	@Size(min = 2 , max = 200,  message = "O atributo organizacao é obrigatório, deve conter no minimo 02 e no maximo 200 caracteres")	
 	private String organizacao;
 
 	@Temporal(TemporalType.TIMESTAMP)

@@ -1,6 +1,7 @@
 package org.grupo7.conquerdaring.service;
 
 import java.nio.charset.Charset;
+import java.util.List;
 import java.util.Optional;
 
 import org.apache.commons.codec.binary.Base64;
@@ -17,6 +18,10 @@ public class UsuarioService {
 
 	@Autowired
 	private UsuarioRepository usuarioRepository;
+	
+	public List<Usuario> listarUsuario(){
+		return usuarioRepository.findAll();	
+	}
 
 	public Usuario CadastrarUsuario(Usuario usuario) {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
@@ -40,11 +45,10 @@ public class UsuarioService {
 				String authHeader = "Basic " + new String(encodedAuth);
 
 				user.get().setToken(authHeader);				
-				user.get().setNome(usuario.get().getNome());
+				user.get().setEmail(usuario.get().getEmail());
 				user.get().setSenha(usuario.get().getSenha());
 
 				return user;
-
 			}
 		}
 		return null;
