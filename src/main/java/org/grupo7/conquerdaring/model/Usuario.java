@@ -31,7 +31,7 @@ public class Usuario {
 	private String email;
 	
 	@NotNull
-	@Size(min = 5, max = 20, message = "O atributo senha é obrigatório, deve conter no minimo 05 e no maximo 20 caracteres")
+	@Size(min = 3, max = 100, message = "O atributo senha é obrigatório, deve conter no minimo 03 e no maximo 100 caracteres")
 	private String senha;
 	
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
