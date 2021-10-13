@@ -45,7 +45,7 @@ public class Usuario {
 	public void setProduto(List<Produto> produto) {
 		this.produto = produto;
 	}
-
+	
 	public long getId() {
 		return id;
 	}
@@ -66,15 +66,8 @@ public class Usuario {
 		return senha;
 	}
 
-<<<<<<< HEAD
 	public void setSenha(String senha) {
 		this.senha = senha;
-	}
-
-=======
->>>>>>> 4600a92ad13e0f2235269f7f7b9e6e5b57bafc99
-	public String getUsuario() {
-		return null;
 	}
 
 	public String getEmail() {
@@ -84,13 +77,4 @@ public class Usuario {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-<<<<<<< HEAD
 }
-=======
-
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
-}
-
->>>>>>> 4600a92ad13e0f2235269f7f7b9e6e5b57bafc99
