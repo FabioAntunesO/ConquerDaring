@@ -66,25 +66,15 @@ public class Usuario {
 		return senha;
 	}
 
-<<<<<<< HEAD
-	public String getUsuario() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	
-	/*
-=======
->>>>>>> a32316091a4655a307149f100a98bb3f406b9b8a
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
-
 	public String getEmail() {
 		return email;
 	}
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 }
