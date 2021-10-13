@@ -23,7 +23,7 @@ public class Categoria {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id_categoria;
+	private long id;
 	
 	@NotNull
 	@Size(min = 2 , max = 30, message = "O atributo tipo é obrigatório, deve conter no minimo 03 e no maximo 30 caracteres")	
@@ -31,29 +31,21 @@ public class Categoria {
 	
 	@NotNull
 	@Size(min = 2 , max = 200,  message = "O atributo nomeOrganizacao é obrigatório, deve conter no minimo 03 e no maximo 200 caracteres")	
-	private String nomeOrganizacao;
+	private String organizacao;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date date = new java.sql.Date(System.currentTimeMillis());
+    private Date data = new java.sql.Date(System.currentTimeMillis());
 
 	@OneToMany(mappedBy = "categoria", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("categoria")
 	private List<Produto> produto;
-
+	
 	public long getId() {
-		return id_categoria;
+		return id;
 	}
 
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
-	}
-
-	public long getId_categoria() {
-		return id_categoria;
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public List<Produto> getProduto() {
@@ -64,10 +56,6 @@ public class Categoria {
 		this.produto = produto;
 	}
 
-	public void setId(long id) {
-		this.id_categoria = id;
-	}
-
 	public String getTipo() {
 		return tipo;
 	}
@@ -76,16 +64,19 @@ public class Categoria {
 		this.tipo = tipo;
 	}
 
-	public String getNomeOrganizacao() {
-		return nomeOrganizacao;
+	public String getOrganizacao() {
+		return organizacao;
 	}
 
-	public void setNomeOrganizacao(String nomeOrganizacao) {
-		this.nomeOrganizacao = nomeOrganizacao;
+	public void setOrganizacao(String organizacao) {
+		this.organizacao = organizacao;
 	}
 
-	public void setId_categoria(long id_categoria) {
-		this.id_categoria = id_categoria;
+	public Date getData() {
+		return data;
+	}
+
+	public void setData(Date data) {
+		this.data = data;
 	}
 }
-
