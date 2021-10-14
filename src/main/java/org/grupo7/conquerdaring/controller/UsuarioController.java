@@ -24,14 +24,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class UsuarioController {
 	
 	@Autowired
-	private UsuarioRepository usuarioRepository;
-	
-	@Autowired
 	private UsuarioService  usuarioService;
 	
 	@GetMapping("/all")
 	public ResponseEntity <List<Usuario>> getAll() {
-		return ResponseEntity.ok(usuarioRepository.findAll());
+		return ResponseEntity.ok(usuarioService.listarUsuarios());
 	}
 	
 	@PostMapping("/logar")
@@ -40,13 +37,12 @@ public class UsuarioController {
                 .orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
     }
 
-    @PostMapping("/cadastrar")
-    public ResponseEntity<Usuario> Post(@RequestBody Usuario usuario) {
+	@PostMapping("/cadastrar")
+    public ResponseEntity<Usuario> post(@RequestBody Usuario usuario) {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(usuarioService.CadastrarUsuario(usuario));
-    
-	}
-	
+    }
+}
 	/*@PutMapping("/atualizar")
 	public ResponseEntity<Usuario> putUsuario(@RequestBody Usuario usuario){
 		
@@ -54,4 +50,3 @@ public class UsuarioController {
 			.map(resp -> ResponseEntity.status(HttpStatus.OK).body(resp))
 			.orElse(ResponseEntity.status(HttpStatus.BAD_REQUEST).build());
 	} */
-}
