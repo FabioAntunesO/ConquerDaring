@@ -14,6 +14,8 @@ import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import io.swagger.annotations.ApiModelProperty;
+
 @Entity
 @Table(name = "tb_usuarios" )
 public class Usuario {
@@ -26,13 +28,16 @@ public class Usuario {
 	@Size(min = 2, max = 50, message = "O atributo nome é obrigatório, deve conter no minimo 02 e no maximo 50 caracteres")
 	private String nome;
 	
-	@NotNull
-	@Size(min = 2, max = 50, message = "O atributo email é obrigatório, deve conter no minimo 02 e no maximo 50 caracteres")
-	private String email;
+	@ApiModelProperty(example = "email@email.com")
+	@NotNull(message = "O atributo usuario é obrigatorio")
+	@Size(min = 2, max = 50, message = "O atributo usuario é obrigatório, deve conter no minimo 02 e no maximo 50 caracteres")
+	
+	private String usuario;
 	
 	@NotNull
 	@Size(min = 3, max = 100, message = "O atributo senha é obrigatório, deve conter no minimo 03 e no maximo 100 caracteres")
 	private String senha;
+	
 	
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuario")
@@ -70,11 +75,11 @@ public class Usuario {
 		this.senha = senha;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getusuario() {
+		return usuario;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setusuario(String usuario) {
+		this.usuario = usuario;
 	}
 }
