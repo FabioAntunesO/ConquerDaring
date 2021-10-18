@@ -24,29 +24,25 @@ import org.springframework.web.bind.annotation.RestController;
 public class UsuarioController {
 	
 	@Autowired
-	private UsuarioService  usuarioService;
+	private UsuarioRepository usuarioRepository;
+
+	@Autowired
+	private UsuarioService usuarioService;
 	
 	@GetMapping("/all")
-	public ResponseEntity <List<Usuario>> getAll() {
-		return ResponseEntity.ok(usuarioService.listarUsuarios());
+	public ResponseEntity<List<Usuario>> GetAll(){
+		return ResponseEntity.ok(usuarioRepository.findAll());
 	}
-	
+
 	@PostMapping("/logar")
-    public ResponseEntity<UsuarioLogin> Autentication(@RequestBody Optional<UsuarioLogin> user) {
-        return usuarioService.Logar(user).map(resp -> ResponseEntity.ok(resp))
-                .orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
-    }
+	public ResponseEntity<UsuarioLogin> Autentication(@RequestBody Optional<UsuarioLogin> user) {
+		return usuarioService.Logar(user).map(resp -> ResponseEntity.ok(resp))
+				.orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
+	}
 
 	@PostMapping("/cadastrar")
-    public ResponseEntity<Usuario> post(@RequestBody Usuario usuario) {
-        return ResponseEntity.status(HttpStatus.CREATED)
-                .body(usuarioService.CadastrarUsuario(usuario));
-    }
+	public ResponseEntity<Usuario> Post(@RequestBody Usuario usuario) {
+		return ResponseEntity.status(HttpStatus.CREATED)
+				.body(usuarioService.CadastrarUsuario(usuario));
+	}
 }
-	/*@PutMapping("/atualizar")
-	public ResponseEntity<Usuario> putUsuario(@RequestBody Usuario usuario){
-		
-		return usuarioService.atualizarUsuario(usuario)
-			.map(resp -> ResponseEntity.status(HttpStatus.OK).body(resp))
-			.orElse(ResponseEntity.status(HttpStatus.BAD_REQUEST).build());
-	} */

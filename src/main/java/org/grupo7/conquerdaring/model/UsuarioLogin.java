@@ -1,8 +1,8 @@
 package org.grupo7.conquerdaring.model;
 
 public class UsuarioLogin {
-
-	private Long id;
+	
+	private long id;
 	
 	private String nome;
 	
@@ -12,11 +12,11 @@ public class UsuarioLogin {
 	
 	private String token;
 	
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -28,11 +28,11 @@ public class UsuarioLogin {
 		this.nome = nome;
 	}
 
-	public String getusuario() {
+	public String getUsuario() {
 		return usuario;
 	}
 
-	public void setusuario(String usuario) {
+	public void setUsuario(String usuario) {
 		this.usuario = usuario;
 	}
 
@@ -51,5 +51,4 @@ public class UsuarioLogin {
 	public void setToken(String token) {
 		this.token = token;
 	}
-
 }
