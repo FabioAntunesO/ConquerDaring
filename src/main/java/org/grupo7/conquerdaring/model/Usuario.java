@@ -37,10 +37,30 @@ public class Usuario {
 	@NotNull
 	@Size(min = 2, max = 100, message = "O atributo usenha deve conter no minimo 2 caracter")
 	private String senha;
-
+    
+    private String tipo;
+	
+	private String foto;
+	
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuario")
 	private List<Produto> produto;
+	
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
 	
 	public List<Produto> getProduto() {
 		return produto;
