@@ -28,24 +28,16 @@ public class Produto {
 	private String descricao;
 	
 	@NotNull
-	private double preco;
+	private String preco;
 	
 	@ManyToOne
 	@JsonIgnoreProperties("produto")
 	private Categoria categoria;
 	
 	@ManyToOne
-	@JsonIgnoreProperties("usuario/{usuario}")
+	@JsonIgnoreProperties("produto")
 	private Usuario usuario;
 
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
-	
 	public long getId() {
 		return id;
 	}
@@ -70,11 +62,11 @@ public class Produto {
 		this.descricao = descricao;
 	}
 
-	public double getPreco() {
+	public String getPreco() {
 		return preco;
 	}
 
-	public void setPreco(double preco) {
+	public void setPreco(String preco) {
 		this.preco = preco;
 	}
 
@@ -84,5 +76,13 @@ public class Produto {
 
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 }
