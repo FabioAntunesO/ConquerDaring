@@ -31,6 +31,7 @@ public class UsuarioService {
 	}
 
 	public Optional<UsuarioLogin> Logar(Optional<UsuarioLogin> user) {
+		
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		Optional<Usuario> usuario = repository.findByUsuario(user.get().getUsuario());
 
@@ -42,10 +43,10 @@ public class UsuarioService {
 				String authHeader = "Basic " + new String(encodedAuth);
 
 				user.get().setToken(authHeader);
-				user.get().setNome(usuario.get().getNome());
-				user.get().setTipo(usuario.get().getTipo());
-				user.get().setFoto(usuario.get().getFoto());
 				user.get().setId(usuario.get().getId());
+				user.get().setNome(usuario.get().getNome());
+				user.get().setFoto(usuario.get().getFoto());
+				user.get().setTipo(usuario.get().getTipo());
 				
 				return user;
 			}

@@ -22,10 +22,11 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(userDetailsService);
 		
-		auth.inMemoryAuthentication()
+		/*auth.inMemoryAuthentication()
 		.withUser("root")
 		.password(passwordEncoder().encode("root"))
 		.authorities("ROLE_USER");
+		*/
 	}
 
 	@Bean
@@ -40,8 +41,8 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
 		.antMatchers("/**").permitAll()
 		.antMatchers("/usuarios/cadastrar").permitAll()
 		.antMatchers("/usuarios/logar").permitAll()
-		.antMatchers(HttpMethod.GET ,"/produto").permitAll()
-		 .antMatchers(HttpMethod.GET ,"/categoria").permitAll()
+		.antMatchers(HttpMethod.GET ,"/produtos").permitAll()
+		 .antMatchers(HttpMethod.GET ,"/categorias").permitAll()
 		.antMatchers(HttpMethod.OPTIONS).permitAll()
 		.anyRequest().authenticated()
 		.and().httpBasic()

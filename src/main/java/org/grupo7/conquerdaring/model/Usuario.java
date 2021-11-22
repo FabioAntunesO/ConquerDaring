@@ -26,16 +26,17 @@ public class Usuario {
 	private long id;
 
 	@NotNull
+	@Size(min = 2, max = 100)
 	private String nome;
 
 	@ApiModelProperty(example = "email@email.com")
 	@NotNull(message = "O atributo usuario é obrigatorio")
-	@Size(min = 2, max = 50, message = "O atributo usuario é obrigatório, deve conter no minimo 02 e no maximo 50 caracteres")
+	@Size(min = 2, max = 100, message = "O atributo usuario é obrigatório, deve conter no minimo 02 e no maximo 100 caracteres")
 	@Email(message = "O atributo Usuario deve ser um e-mail válido!")
 	private String usuario;
 	
 	@NotNull
-	@Size(min = 2, max = 100, message = "O atributo usenha deve conter no minimo 2 caracter")
+	@Size(min = 5, message = "O atributo usenha deve conter no minimo 5 caracter")
 	private String senha;
     
     private String tipo;
@@ -43,7 +44,7 @@ public class Usuario {
 	private String foto;
 	
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
-	@JsonIgnoreProperties("usuario")
+	@JsonIgnoreProperties(value = "usuario", allowSetters=true)
 	private List<Produto> produto;
 	
 	public String getTipo() {

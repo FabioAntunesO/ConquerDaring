@@ -24,10 +24,10 @@ public class Produto {
 	private String curso;
 	
 	@NotNull
-	@Size(min = 2, max = 100, message = "O atributo descricao é obrigatório, deve conter no minimo 02 e no maximo 100 caracteres")
+	@Size(min = 2, max = 500, message = "O atributo descricao é obrigatório, deve conter no minimo 02 e no maximo 500 caracteres")
 	private String descricao;
 	
-	@NotNull
+	
 	private String preco;
 	
 	@ManyToOne
@@ -35,7 +35,7 @@ public class Produto {
 	private Categoria categoria;
 	
 	@ManyToOne
-	@JsonIgnoreProperties("produto")
+	@JsonIgnoreProperties(value="produto", allowSetters=true)
 	private Usuario usuario;
 
 	public long getId() {

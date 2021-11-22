@@ -31,12 +31,14 @@ public class ProdutoController {
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Produto> getById(@PathVariable long id) {
-		return repository.findById(id).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
+	public ResponseEntity<Produto> GetById(@PathVariable long id){
+		return repository.findById(id)
+				.map(resp -> ResponseEntity.ok(resp))
+				.orElse(ResponseEntity.notFound().build());
 	}
 	
-	@GetMapping("/nome/{nome}")
-	public ResponseEntity<List<Produto>> getByCurso(@PathVariable String curso) {
+	@GetMapping("/curso/{curso}")
+	public ResponseEntity<List<Produto>> GetByCurso(@PathVariable String curso){
 		return ResponseEntity.ok(repository.findAllByCursoContainingIgnoreCase(curso));
 	}
 	
@@ -46,8 +48,8 @@ public class ProdutoController {
 	}
 	
 	@PutMapping
-	public ResponseEntity<Produto> put(@RequestBody Produto produto) {
-		return ResponseEntity.ok(repository.save(produto));
+	public ResponseEntity<Produto> put (@RequestBody Produto produto){
+		return ResponseEntity.status(HttpStatus.OK).body(repository.save(produto));
 	}
 	
 	@DeleteMapping("/{id}")

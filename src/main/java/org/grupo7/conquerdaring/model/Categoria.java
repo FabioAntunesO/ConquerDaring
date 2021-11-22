@@ -13,7 +13,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -25,11 +24,9 @@ public class Categoria {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@NotNull
-	@Size(min = 2 , max = 30, message = "O atributo tipo é obrigatório, deve conter no minimo 02 e no maximo 30 caracteres")	
+	@NotNull	
 	private String tipo;
-	
-	@Size(min = 2 , max = 200,  message = "O atributo organizacao é obrigatório, deve conter no minimo 02 e no maximo 200 caracteres")	
+		
 	private String organizacao;
 
 	@Temporal(TemporalType.TIMESTAMP)
